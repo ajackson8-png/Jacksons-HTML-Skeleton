@@ -1,52 +1,105 @@
-/* ============================================================
-   DEV.140 — Discussion 3: Styling with CSS (Starter Template)
-   ============================================================
-   This file only works once index.html links it:
-     <link rel="stylesheet" href="style.css">
-   Save and refresh the browser after every change.
-
-   Every rule has the same shape:
-     selector {
-       property: value;
-     }
-   ============================================================ */
-
-
-/* ---------- PART 1: COLORS ----------
-   Pick 2-3 colors that go together:
-     Background:  #______
-     Text:        #______
-     Headings:    #______
-*/
-
+/* PART 1: COLORS AND BACKGROUND */
 body {
-  /* TODO: background-color */
-  /* TODO: color (the text color) */
+    background-color: #293D7F;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-h1,
-h2 {
-  /* TODO: color */
+/* PART 2: HEADINGS */
+h1, h2, h3 {
+    color: #eab676;
 }
-
-
-/* ---------- PART 2: FONT SIZES ----------
-   1rem = the browser's default size (usually 16px).
-   h1 should be the biggest, then h2.
-*/
 
 h1 {
-  /* TODO: font-size */
+    font-size: 3rem;
 }
 
 h2 {
-  /* TODO: font-size */
+    font-size: 2rem;
 }
 
+/* PART 3: PARAGRAPHS - TYPE SELECTOR */
+p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
 
-/* ---------- PART 3: TYPE SELECTOR FOR <p> ----------
-   A type selector is just the tag name, without the < >.
-   p { } styles EVERY <p> on the page at once.
-*/
+/* PART 4: HEADER - BOX MODEL */
+header {
+    background-color: #1c2d60;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 25px;
+    border-bottom: 4px solid #eab676;
+}
 
-/* TODO: write a p { } rule that sets font-size and line-height */
+/* PART 5: NAVIGATION */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+    border: 2px solid #eab676;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+nav a:hover {
+    background-color: #eab676;
+    color: #293D7F;
+}
+
+/* PART 6: MAIN CONTENT */
+main {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* PART 7: SECTIONS - BOX MODEL */
+section {
+    background-color: #ffffff;
+    color: #293D7F;
+    margin-bottom: 20px;
+    padding: 25px;
+    border: 3px solid #eab676;
+    border-radius: 10px;
+}
+
+/* PART 8: CLASS SELECTOR */
+.highlight {
+    background-color: #fff0d2;
+    color: #293D7F;
+    padding: 15px;
+    margin: 10px 0;
+    border-left: 5px solid #eab676;
+}
+
+/* PART 9: ID SELECTOR - BOX MODEL */
+#about-me {
+    background-color: #edf2ff;
+    color: #293D7F;
+    margin-top: 20px;
+    padding: 25px;
+    border: 3px solid #5f7a23;
+}
+
+/* PART 10: FOOTER */
+footer {
+    background-color: #1c2d60;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    border-top: 4px solid #eab676;
+}
