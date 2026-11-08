@@ -14,6 +14,7 @@
     --purple-dark: #140020;
     --purple: #68249f;
     --purple-bright: #a64de0;
+    --purple-active: #8f35cc;
     --lavender: #e6b3ff;
     --text: #f5edff;
 }
@@ -189,7 +190,7 @@ nav a {
 
 nav a:hover,
 nav a[aria-current="page"] {
-    background-color: var(--purple-bright);
+    background-color: var(--purple-active);
     color: #ffffff;
     box-shadow: 0 0 15px rgba(175, 75, 255, 0.6);
 }
@@ -481,4 +482,33 @@ footer {
     section {
         transition: none;
     }
+}
+
+/* SKIP LINK AND KEYBOARD FOCUS */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+}
+
+.skip-link:focus {
+    left: var(--space-2);
+    top: var(--space-2);
+    z-index: 1000;
+    background-color: #ffffff;
+    color: #140020;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+main:focus {
+    outline: none;
+}
+
+a:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
 }
