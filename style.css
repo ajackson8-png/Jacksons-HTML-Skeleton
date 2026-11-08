@@ -505,7 +505,8 @@ footer {
 }
 
 main:focus {
-    outline: none;
+    outline: 3px solid #ffffff;
+    outline-offset: 4px;
 }
 
 a:focus-visible {
