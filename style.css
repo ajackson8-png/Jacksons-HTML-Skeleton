@@ -17,6 +17,7 @@
     --purple-active: #7020a8;
     --lavender: #e6b3ff;
     --text: #f5edff;
+    --error: #ffb3b3;
 }
 
 /* GENERAL STYLING */
@@ -345,6 +346,94 @@ footer {
     box-shadow: 0 0 20px rgba(145, 30, 230, 0.3);
 }
 
+/* ACCESSIBLE CONTACT FORM */
+.contact-form-section {
+    width: 100%;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.form-field label,
+fieldset legend {
+    color: var(--lavender);
+    font-weight: 700;
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--purple-bright);
+    border-radius: 8px;
+    background-color: #140020;
+    color: #ffffff;
+    font: inherit;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+}
+
+fieldset {
+    border: 2px solid var(--purple-bright);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 0 0 24px;
+}
+
+fieldset label {
+    display: block;
+    margin: 12px 0;
+    color: #ffffff;
+}
+
+fieldset input {
+    accent-color: var(--purple-bright);
+}
+
+.form-error {
+    color: var(--error);
+    font-weight: 700;
+    display: block;
+}
+
+input[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+    border: 3px solid var(--error);
+}
+
+#form-status {
+    color: var(--text);
+    font-weight: 600;
+}
+
+#contact-form button {
+    background-color: var(--purple-active);
+    color: #ffffff;
+    border: 2px solid var(--purple-bright);
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#contact-form button:hover {
+    background-color: #68249f;
+}
+
+#contact-form button:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 4px;
+}
+
 /* DESKTOP - 1200PX AND ABOVE */
 @media screen and (min-width: 1200px) {
     main {
@@ -476,6 +565,15 @@ footer {
         width: calc(100% - 16px);
         margin: var(--space-2) auto;
         padding: var(--space-2);
+    }
+
+    .form-field input,
+    .form-field textarea {
+        font-size: 16px;
+    }
+
+    #contact-form button {
+        width: 100%;
     }
 
     body::after {

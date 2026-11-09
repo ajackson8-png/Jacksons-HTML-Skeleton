@@ -95,17 +95,103 @@
 
             <p>If you would like to contact me, you can reach me through email.</p>
 
-            <p>Email:
+            <p>
+                Email:
                 <a href="mailto:ajackson8@my.campus.edu">
                     ajackson8@my.campus.edu
                 </a>
             </p>
 
-            <p>LinkedIn:
-                <a href="https://www.linkedin.com/in/albert-jackson-43688a421" target="_blank" rel="noopener noreferrer">
+            <p>
+                LinkedIn:
+                <a
+                    href="https://www.linkedin.com/in/albert-jackson-43688a421"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     My LinkedIn Profile (opens in a new tab)
                 </a>
             </p>
+        </section>
+
+        <!-- ACCESSIBLE CONTACT FORM -->
+        <section class="contact-form-section">
+            <h2>Send Me a Message</h2>
+
+            <p>Fill out the form below if you would like to get in touch.</p>
+
+            <form id="contact-form" novalidate>
+
+                <div class="form-field">
+                    <label for="contact-name">Full Name</label>
+
+                    <input
+                        type="text"
+                        id="contact-name"
+                        name="name"
+                        autocomplete="name"
+                        required
+                        aria-describedby="name-error"
+                    >
+
+                    <span class="form-error" id="name-error"></span>
+                </div>
+
+                <div class="form-field">
+                    <label for="contact-email">Email Address</label>
+
+                    <input
+                        type="email"
+                        id="contact-email"
+                        name="email"
+                        autocomplete="email"
+                        required
+                        aria-describedby="email-error"
+                    >
+
+                    <span class="form-error" id="email-error"></span>
+                </div>
+
+                <fieldset id="reason-group" aria-describedby="reason-error">
+                    <legend>What would you like to contact me about?</legend>
+
+                    <label>
+                        <input type="radio" name="reason" value="School">
+                        School
+                    </label>
+
+                    <label>
+                        <input type="radio" name="reason" value="Career">
+                        Career
+                    </label>
+
+                    <label>
+                        <input type="radio" name="reason" value="Other">
+                        Other
+                    </label>
+
+                    <span class="form-error" id="reason-error"></span>
+                </fieldset>
+
+                <div class="form-field">
+                    <label for="contact-message">Your Message</label>
+
+                    <textarea
+                        id="contact-message"
+                        name="message"
+                        rows="5"
+                        required
+                        aria-describedby="message-error"
+                    ></textarea>
+
+                    <span class="form-error" id="message-error"></span>
+                </div>
+
+                <button type="submit">Submit Message</button>
+
+                <p id="form-status" role="status" aria-live="polite"></p>
+
+            </form>
         </section>
 
     </main>
@@ -114,6 +200,106 @@
         <p>Thank you for visiting my portfolio.</p>
         <p>&copy; 2026 Albert Jackson | My Portfolio</p>
     </footer>
+
+    <!-- CONTACT FORM VALIDATION -->
+    <script>
+        const contactForm = document.getElementById("contact-form");
+
+        contactForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("contact-name");
+            const email = document.getElementById("contact-email");
+            const message = document.getElementById("contact-message");
+            const reason = document.querySelector('input[name="reason"]:checked');
+            const status = document.getElementById("form-status");
+
+            const fields = [
+                {
+                    input: name,
+                    error: "name-error",
+                    message: "Please enter your name."
+                },
+                {
+                    input: email,
+                    error: "email-error",
+                    message: "Please enter a valid email address."
+                },
+                {
+                    input: message,
+                    error: "message-error",
+                    message: "Please enter a message."
+                }
+            ];
+
+            let firstInvalid = null;
+
+            status.textContent = "";
+
+            fields.forEach(function(field) {
+                const value = field.input.value.trim();
+                let errorMessage = "";
+
+                if (!value) {
+                    errorMessage = field.message;
+                } else if (
+                    field.input.type === "email" &&
+                    !field.input.validity.valid
+                ) {
+                    errorMessage = "Please enter a valid email address.";
+                }
+
+                document.getElementById(field.error).textContent = errorMessage;
+
+                field.input.setAttribute(
+                    "aria-invalid",
+                    errorMessage ? "true" : "false"
+                );
+
+                if (errorMessage && !firstInvalid) {
+                    firstInvalid = field.input;
+                }
+            });
+
+            const reasonError = document.getElementById("reason-error");
+
+            reasonError.textContent = reason
+                ? ""
+                : "Please select a contact reason.";
+
+            if (!reason && !firstInvalid) {
+                firstInvalid = document.querySelector('input[name="reason"]');
+            }
+
+            if (firstInvalid) {
+                firstInvalid.focus();
+                status.textContent = "Please correct the errors in the form.";
+                return;
+            }
+
+            status.textContent =
+                "Your form is complete. This demonstration form is not connected to a message service yet.";
+        });
+
+        contactForm.addEventListener("input", function(event) {
+            const field = event.target;
+
+            if (field.matches("input, textarea")) {
+                const error = document.getElementById(field.id + "-error");
+
+                if (error) {
+                    error.textContent = "";
+                    field.setAttribute("aria-invalid", "false");
+                }
+            }
+        });
+
+        contactForm.addEventListener("change", function(event) {
+            if (event.target.name === "reason") {
+                document.getElementById("reason-error").textContent = "";
+            }
+        });
+    </script>
 
 </body>
 </html>
