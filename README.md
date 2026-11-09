@@ -28,7 +28,7 @@
 
 ## 4. Accessibility Testing
 
-I tested my Home, Projects, and About pages using WAVE and checked my text and background color combinations using the WebAIM Contrast Checker.
+I tested my Home, Projects, and About pages using WAVE and checked my text and background color combinations using the WAVE Contrast Checker. The checker reported that my color combinations passed the contrast requirements.
 
 Final WAVE Results:
 
