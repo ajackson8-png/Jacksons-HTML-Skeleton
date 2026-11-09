@@ -14,7 +14,7 @@
     --purple-dark: #140020;
     --purple: #68249f;
     --purple-bright: #a64de0;
-    --purple-active: #8f35cc;
+    --purple-active: #7020a8;
     --lavender: #e6b3ff;
     --text: #f5edff;
 }
@@ -207,6 +207,13 @@ main {
     gap: var(--space-3);
 }
 
+/* MAIN CONTENT ID SELECTOR */
+#main-content {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* HOME PAGE GRID */
 .home-layout {
     display: grid;
@@ -271,7 +278,7 @@ section h3 {
     border-radius: 8px;
 }
 
-/* ID SELECTOR */
+/* ABOUT ME ID SELECTOR */
 #about-me {
     background-color: rgba(20, 3, 40, 0.9);
     color: #ffffff;
