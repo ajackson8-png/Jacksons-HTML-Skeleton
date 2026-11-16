@@ -1,5 +1,7 @@
 # Jacksons-HTML-Skeleton
 
+# Jacksons-HTML-Skeleton
+
 # Milestone 2: Accessibility and Visual Design
 
 ## 1. Accessibility Fixes
