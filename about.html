@@ -131,6 +131,7 @@
                         name="name"
                         autocomplete="name"
                         required
+                        aria-invalid="false"
                         aria-describedby="name-error"
                     >
 
@@ -146,6 +147,7 @@
                         name="email"
                         autocomplete="email"
                         required
+                        aria-invalid="false"
                         aria-describedby="email-error"
                     >
 
@@ -181,6 +183,7 @@
                         name="message"
                         rows="5"
                         required
+                        aria-invalid="false"
                         aria-describedby="message-error"
                     ></textarea>
 
@@ -201,104 +204,108 @@
         <p>&copy; 2026 Albert Jackson | My Portfolio</p>
     </footer>
 
-    <!-- CONTACT FORM VALIDATION -->
+    <!-- ACCESSIBLE FORM VALIDATION -->
     <script>
-        const contactForm = document.getElementById("contact-form");
+    const contactForm = document.getElementById("contact-form");
 
-        contactForm.addEventListener("submit", function(event) {
-            event.preventDefault();
+    contactForm.addEventListener("submit", function(event) {
+        event.preventDefault();
 
-            const name = document.getElementById("contact-name");
-            const email = document.getElementById("contact-email");
-            const message = document.getElementById("contact-message");
-            const reason = document.querySelector('input[name="reason"]:checked');
-            const status = document.getElementById("form-status");
+        const name = document.getElementById("contact-name");
+        const email = document.getElementById("contact-email");
+        const message = document.getElementById("contact-message");
+        const reason = document.querySelector('input[name="reason"]:checked');
+        const status = document.getElementById("form-status");
 
-            const fields = [
-                {
-                    input: name,
-                    error: "name-error",
-                    message: "Please enter your name."
-                },
-                {
-                    input: email,
-                    error: "email-error",
-                    message: "Please enter a valid email address."
-                },
-                {
-                    input: message,
-                    error: "message-error",
-                    message: "Please enter a message."
-                }
-            ];
+        const fields = [
+            { input: name, error: "name-error" },
+            { input: email, error: "email-error" },
+            { input: message, error: "message-error" }
+        ];
 
-            let firstInvalid = null;
+        let firstInvalid = null;
 
-            status.textContent = "";
+        status.textContent = "";
 
-            fields.forEach(function(field) {
-                const value = field.input.value.trim();
-                let errorMessage = "";
+        fields.forEach(function(field) {
+            const value = field.input.value.trim();
+            let errorMessage = "";
 
-                if (!value) {
-                    errorMessage = field.message;
-                } else if (
-                    field.input.type === "email" &&
-                    !field.input.validity.valid
-                ) {
-                    errorMessage = "Please enter a valid email address.";
-                }
-
-                document.getElementById(field.error).textContent = errorMessage;
-
-                field.input.setAttribute(
-                    "aria-invalid",
-                    errorMessage ? "true" : "false"
-                );
-
-                if (errorMessage && !firstInvalid) {
-                    firstInvalid = field.input;
-                }
-            });
-
-            const reasonError = document.getElementById("reason-error");
-
-            reasonError.textContent = reason
-                ? ""
-                : "Please select a contact reason.";
-
-            if (!reason && !firstInvalid) {
-                firstInvalid = document.querySelector('input[name="reason"]');
+            if (!value) {
+                errorMessage = "This field is required.";
+            } else if (
+                field.input.type === "email" &&
+                !field.input.validity.valid
+            ) {
+                errorMessage = "Please enter a valid email address.";
             }
 
-            if (firstInvalid) {
-                firstInvalid.focus();
-                status.textContent = "Please correct the errors in the form.";
-                return;
-            }
+            document.getElementById(field.error).textContent = errorMessage;
 
-            status.textContent =
-                "Your form is complete. This demonstration form is not connected to a message service yet.";
-        });
+            field.input.setAttribute(
+                "aria-invalid",
+                errorMessage ? "true" : "false"
+            );
 
-        contactForm.addEventListener("input", function(event) {
-            const field = event.target;
-
-            if (field.matches("input, textarea")) {
-                const error = document.getElementById(field.id + "-error");
-
-                if (error) {
-                    error.textContent = "";
-                    field.setAttribute("aria-invalid", "false");
-                }
+            if (errorMessage && !firstInvalid) {
+                firstInvalid = field.input;
             }
         });
 
-        contactForm.addEventListener("change", function(event) {
-            if (event.target.name === "reason") {
-                document.getElementById("reason-error").textContent = "";
-            }
-        });
+        const reasonError = document.getElementById("reason-error");
+        const reasonGroup = document.getElementById("reason-group");
+
+        reasonError.textContent = reason
+            ? ""
+            : "Please select a contact reason.";
+
+        reasonGroup.setAttribute(
+            "aria-invalid",
+            reason ? "false" : "true"
+        );
+
+        if (!reason && !firstInvalid) {
+            firstInvalid = document.querySelector('input[name="reason"]');
+        }
+
+        if (firstInvalid) {
+            firstInvalid.focus();
+            status.textContent = "Please correct the errors in the form.";
+            return;
+        }
+
+        status.textContent =
+            "Your form is complete. This demonstration form does not send messages yet.";
+    });
+
+    // Clear errors when users correct their information
+    contactForm.addEventListener("input", function(event) {
+        const errorIds = {
+            "contact-name": "name-error",
+            "contact-email": "email-error",
+            "contact-message": "message-error"
+        };
+
+        const field = event.target;
+        const errorId = errorIds[field.id];
+
+        if (errorId) {
+            document.getElementById(errorId).textContent = "";
+            field.setAttribute("aria-invalid", "false");
+        }
+    });
+
+    // Clear contact reason error when an option is selected
+    contactForm.addEventListener("change", function(event) {
+        if (event.target.name === "reason") {
+            document.getElementById("reason-error").textContent = "";
+
+            document.getElementById("reason-group").setAttribute(
+                "aria-invalid",
+                "false"
+            );
+        }
+    });
     </script>
 
 </body>
