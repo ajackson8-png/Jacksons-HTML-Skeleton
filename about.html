@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,87 +13,78 @@
     <header>
         <h1>About Me</h1>
 
-        <nav>
+        <nav aria-label="Main navigation">
             <a href="index.html">Home</a>
-            <a href="projects.html">Projects / Work</a>
-            <a href="about.html" aria-current="page">About / Contact</a>
+            <a href="projects.html">Projects</a>
+            <a href="about.html" aria-current="page">About</a>
         </nav>
     </header>
 
     <main id="main-content" tabindex="-1">
 
-        <!-- INTRODUCTION -->
-        <section class="hero" id="about-me">
+        <section class="hero">
             <h2>Get to Know Me</h2>
-
-            <p>My name is Albert Jackson, and I am from Los Angeles, California.</p>
-
-            <p>I am an Information Technology student interested in technology, web development, programming, and cybersecurity. I enjoy learning new skills and finding ways to improve myself.</p>
-
-            <img
-                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
-                alt="Laptop and digital technology representing learning and technology"
-                width="400"
-            >
+            <p>
+                My name is Albert Jackson, and I am from Los Angeles,
+                California. I am an Information Technology student
+                interested in technology, cybersecurity, and personal
+                development.
+            </p>
         </section>
 
-        <!-- EDUCATION AND SPORTS -->
         <section class="about-layout">
 
-            <div class="content-card">
+            <article class="content-card">
                 <h2>Education</h2>
+                <p>
+                    I am studying Information Technology and working
+                    toward building a career in cybersecurity. I want
+                    to continue improving my skills and learning more
+                    about computers and technology.
+                </p>
+            </article>
 
-                <p>I am studying Information Technology and working toward a future career in cybersecurity.</p>
-
-                <p>My education is helping me develop technical knowledge and learn more about computers, networking, and technology.</p>
-            </div>
-
-            <div class="content-card">
+            <article class="content-card">
                 <h2>Sports Background</h2>
-
-                <p>I have a background in track and football. Sports have helped me develop discipline, teamwork, dedication, and determination.</p>
-
-                <p>I earned four school track records and received a Returner of the Year football award.</p>
+                <p>
+                    Sports have been a big part of my life. I have
+                    experience in track and football. During track,
+                    I set four school records. I also received a
+                    Returner of the Year award in football.
+                </p>
 
                 <img
                     src="trackimage.jpeg"
-                    alt="Albert Jackson's track and field picture"
-                    width="400"
+                    alt="Albert during his track and field experience"
+                    class="about-image"
                 >
-            </div>
+            </article>
 
         </section>
 
-        <!-- SKILLS -->
         <section class="content-card">
             <h2>My Skills</h2>
-
-            <p>Some of the skills I am currently developing include:</p>
-
             <ul>
-                <li>HTML and website development</li>
-                <li>CSS and website design</li>
-                <li>Programming and coding</li>
-                <li>Computer hardware and software</li>
-                <li>Networking fundamentals</li>
-                <li>Cybersecurity fundamentals</li>
+                <li>Information Technology</li>
+                <li>HTML and CSS</li>
+                <li>Communication</li>
+                <li>Teamwork</li>
+                <li>Problem Solving</li>
             </ul>
         </section>
 
-        <!-- GOALS -->
         <section class="content-card">
             <h2>My Goals</h2>
-
-            <p>My goal is to continue improving my technical skills, gain experience, and build a successful career in information technology and cybersecurity.</p>
-
-            <p>I also want to work toward professional certifications, continue learning, and challenge myself to grow both personally and professionally.</p>
+            <p>
+                My goal is to finish my education, continue learning
+                about cybersecurity, and build a successful career
+                in the technology field. I also want to keep growing
+                personally and professionally.
+            </p>
         </section>
 
-        <!-- CONTACT -->
         <section class="content-card">
             <h2>Contact Me</h2>
-
-            <p>If you would like to contact me, you can reach me through email.</p>
 
             <p>
                 Email:
@@ -105,110 +95,95 @@
 
             <p>
                 LinkedIn:
-                <a
-                    href="https://www.linkedin.com/in/albert-jackson-43688a421"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    My LinkedIn Profile (opens in a new tab)
+                <a href="https://www.linkedin.com/in/albert-jackson-43688a421"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Visit my LinkedIn profile
                 </a>
             </p>
         </section>
 
-        <!-- ACCESSIBLE CONTACT FORM -->
-        <section class="contact-form-section">
+        <section class="content-card">
             <h2>Send Me a Message</h2>
-
-            <p>Fill out the form below if you would like to get in touch.</p>
 
             <form id="contact-form" novalidate>
 
-                <div class="form-field">
-                    <label for="contact-name">Full Name</label>
-
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
                     <input
                         type="text"
-                        id="contact-name"
-                        name="name"
+                        id="full-name"
+                        name="full-name"
                         autocomplete="name"
                         required
-                        aria-invalid="false"
                         aria-describedby="name-error"
+                        aria-invalid="false"
                     >
-
-                    <span
-                        class="form-error"
-                        id="name-error"
-                        aria-live="polite"
-                    ></span>
+                    <span id="name-error" class="form-error" aria-live="polite"></span>
                 </div>
 
-                <div class="form-field">
-                    <label for="contact-email">Email Address</label>
-
+                <div class="form-group">
+                    <label for="email">Email Address</label>
                     <input
                         type="email"
-                        id="contact-email"
+                        id="email"
                         name="email"
                         autocomplete="email"
                         required
-                        aria-invalid="false"
                         aria-describedby="email-error"
+                        aria-invalid="false"
                     >
-
-                    <span
-                        class="form-error"
-                        id="email-error"
-                        aria-live="polite"
-                    ></span>
+                    <span id="email-error" class="form-error" aria-live="polite"></span>
                 </div>
 
-                <fieldset
-                    id="reason-group"
-                    aria-describedby="reason-error"
-                    aria-invalid="false"
-                >
+                <fieldset>
                     <legend>What would you like to contact me about?</legend>
 
-                    <label>
-                        <input type="radio" name="reason" value="School">
-                        School
-                    </label>
+                    <div class="form-group">
+                        <input
+                            type="radio"
+                            id="school"
+                            name="reason"
+                            value="School"
+                            required
+                        >
+                        <label for="school">School</label>
+                    </div>
 
-                    <label>
-                        <input type="radio" name="reason" value="Career">
-                        Career
-                    </label>
+                    <div class="form-group">
+                        <input
+                            type="radio"
+                            id="career"
+                            name="reason"
+                            value="Career"
+                        >
+                        <label for="career">Career</label>
+                    </div>
 
-                    <label>
-                        <input type="radio" name="reason" value="Other">
-                        Other
-                    </label>
+                    <div class="form-group">
+                        <input
+                            type="radio"
+                            id="other"
+                            name="reason"
+                            value="Other"
+                        >
+                        <label for="other">Other</label>
+                    </div>
 
-                    <span
-                        class="form-error"
-                        id="reason-error"
-                        aria-live="polite"
-                    ></span>
+                    <span id="reason-error" class="form-error" aria-live="polite"></span>
                 </fieldset>
 
-                <div class="form-field">
-                    <label for="contact-message">Your Message</label>
-
+                <div class="form-group">
+                    <label for="message">Your Message</label>
                     <textarea
-                        id="contact-message"
+                        id="message"
                         name="message"
                         rows="5"
                         required
-                        aria-invalid="false"
                         aria-describedby="message-error"
+                        aria-invalid="false"
                     ></textarea>
-
-                    <span
-                        class="form-error"
-                        id="message-error"
-                        aria-live="polite"
-                    ></span>
+                    <span id="message-error" class="form-error" aria-live="polite"></span>
                 </div>
 
                 <button type="submit">Submit Message</button>
@@ -221,144 +196,103 @@
     </main>
 
     <footer>
-        <p>Thank you for visiting my portfolio.</p>
-        <p>&copy; 2026 Albert Jackson | My Portfolio</p>
+        <p>&copy; 2026 Albert Jackson. All rights reserved.</p>
     </footer>
 
-    <!-- ACCESSIBLE CONTACT FORM VALIDATION -->
     <script>
-    const contactForm = document.getElementById("contact-form");
+        const contactForm = document.getElementById("contact-form");
+        const formStatus = document.getElementById("form-status");
 
-    const nameField = document.getElementById("contact-name");
-    const emailField = document.getElementById("contact-email");
-    const messageField = document.getElementById("contact-message");
+        const fields = [
+            {
+                input: document.getElementById("full-name"),
+                error: document.getElementById("name-error"),
+                message: "Please enter your full name."
+            },
+            {
+                input: document.getElementById("email"),
+                error: document.getElementById("email-error"),
+                message: "Please enter a valid email address."
+            },
+            {
+                input: document.getElementById("message"),
+                error: document.getElementById("message-error"),
+                message: "Please enter a message."
+            }
+        ];
 
-    const reasonGroup = document.getElementById("reason-group");
-    const reasonError = document.getElementById("reason-error");
-
-    const formStatus = document.getElementById("form-status");
-
-    // Validate individual form fields
-    function validateField(field) {
-        const value = field.value.trim();
-        let errorMessage = "";
-
-        if (!value) {
-            errorMessage = "This field is required.";
-        } else if (
-            field.type === "email" &&
-            !field.validity.valid
-        ) {
-            errorMessage = "Please enter a valid email address.";
+        function clearFieldError(field) {
+            field.input.setAttribute("aria-invalid", "false");
+            field.error.textContent = "";
         }
 
-        const errorId = {
-            "contact-name": "name-error",
-            "contact-email": "email-error",
-            "contact-message": "message-error"
-        }[field.id];
+        fields.forEach(function(field) {
+            field.input.addEventListener("input", function() {
+                clearFieldError(field);
+            });
+        });
 
-        document.getElementById(errorId).textContent = errorMessage;
+        contactForm.addEventListener("submit", function(event) {
+            event.preventDefault();
 
-        field.setAttribute(
-            "aria-invalid",
-            errorMessage ? "true" : "false"
-        );
+            let firstInvalidField = null;
+            let hasErrors = false;
 
-        return errorMessage === "";
-    }
+            fields.forEach(function(field) {
+                const value = field.input.value.trim();
+                let valid = value !== "";
 
-    // Validate the contact reason
-    function validateReason() {
-        const selectedReason = document.querySelector(
-            'input[name="reason"]:checked'
-        );
+                if (field.input.type === "email" && value !== "") {
+                    valid = field.input.validity.valid;
+                }
 
-        const valid = selectedReason !== null;
+                if (!valid) {
+                    hasErrors = true;
+                    field.input.setAttribute("aria-invalid", "true");
+                    field.error.textContent = field.message;
 
-        reasonError.textContent = valid
-            ? ""
-            : "Please select a contact reason.";
+                    if (!firstInvalidField) {
+                        firstInvalidField = field.input;
+                    }
+                } else {
+                    clearFieldError(field);
+                }
+            });
 
-        reasonGroup.setAttribute(
-            "aria-invalid",
-            valid ? "false" : "true"
-        );
+            const selectedReason = document.querySelector(
+                'input[name="reason"]:checked'
+            );
 
-        return valid;
-    }
+            const reasonError = document.getElementById("reason-error");
 
-    // Check the form when submitted
-    contactForm.addEventListener("submit", function(event) {
-        event.preventDefault();
+            if (!selectedReason) {
+                hasErrors = true;
+                reasonError.textContent = "Please select a reason.";
 
-        formStatus.textContent = "";
+                if (!firstInvalidField) {
+                    firstInvalidField = document.getElementById("school");
+                }
+            } else {
+                reasonError.textContent = "";
+            }
 
-        const nameValid = validateField(nameField);
-        const emailValid = validateField(emailField);
-        const messageValid = validateField(messageField);
-        const reasonValid = validateReason();
+            if (hasErrors) {
+                formStatus.textContent = "Please fix the errors before submitting.";
+                firstInvalidField.focus();
+                return;
+            }
 
-        // Find the first field that needs correction
-        if (!nameValid) {
-            nameField.focus();
-        } else if (!emailValid) {
-            emailField.focus();
-        } else if (!reasonValid) {
-            document.querySelector(
-                'input[name="reason"]'
-            ).focus();
-        } else if (!messageValid) {
-            messageField.focus();
-        }
-
-        // Stop if any field is invalid
-        if (
-            !nameValid ||
-            !emailValid ||
-            !messageValid ||
-            !reasonValid
-        ) {
             formStatus.textContent =
-                "Please correct the errors in the form.";
+                "Your form passed validation. This demonstration form does not send messages.";
 
-            return;
-        }
+            contactForm.reset();
 
-        // Display a success message
-        formStatus.textContent =
-            "Your form is complete. This demonstration form is not connected to a message service yet.";
-    });
+            fields.forEach(function(field) {
+                clearFieldError(field);
+            });
 
-    // Update errors when the user edits a field
-    nameField.addEventListener("input", function() {
-        validateField(nameField);
-    });
-
-    emailField.addEventListener("input", function() {
-        validateField(emailField);
-    });
-
-    messageField.addEventListener("input", function() {
-        validateField(messageField);
-    });
-
-    // Clear the contact reason error when selected
-    contactForm.addEventListener("change", function(event) {
-        if (event.target.name === "reason") {
-            validateReason();
-        }
-    });
-
-    // Clear the general error message when editing
-    contactForm.addEventListener("input", function() {
-        formStatus.textContent = "";
-    });
-
-    contactForm.addEventListener("change", function() {
-        formStatus.textContent = "";
-    });
-
+            reasonError.textContent = "";
+        });
     </script>
 
 </body>
