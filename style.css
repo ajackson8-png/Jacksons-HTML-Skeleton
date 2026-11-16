@@ -159,7 +159,7 @@ header {
         inset 0 0 25px rgba(70, 0, 120, 0.2);
 }
 
-/* NAVIGATION - FLEXBOX */
+/* NAVIGATION */
 nav {
     display: flex;
     justify-content: center;
@@ -351,21 +351,28 @@ footer {
     width: 100%;
 }
 
-.form-field {
+/* SUPPORTS BOTH FORM CLASS NAMES */
+.form-field,
+.form-group {
     display: flex;
     flex-direction: column;
     gap: 8px;
     margin-bottom: 24px;
+    min-width: 0;
 }
 
 .form-field label,
+.form-group label,
 fieldset legend {
     color: var(--lavender);
     font-weight: 700;
 }
 
-.form-field input,
-.form-field textarea {
+/* TEXT INPUTS AND TEXTAREA */
+.form-field input:not([type="radio"]),
+.form-field textarea,
+.form-group input:not([type="radio"]),
+.form-group textarea {
     width: 100%;
     padding: 12px;
     border: 2px solid var(--purple-bright);
@@ -376,9 +383,19 @@ fieldset legend {
 }
 
 .form-field input:focus,
-.form-field textarea:focus {
+.form-field textarea:focus,
+.form-group input:focus,
+.form-group textarea:focus {
     outline: 3px solid #ffffff;
     outline-offset: 3px;
+}
+
+/* RADIO BUTTONS */
+.form-field input[type="radio"],
+.form-group input[type="radio"] {
+    width: auto;
+    accent-color: var(--purple-bright);
+    margin-right: 8px;
 }
 
 fieldset {
@@ -389,7 +406,7 @@ fieldset {
 }
 
 fieldset label {
-    display: block;
+    display: inline-block;
     margin: 12px 0;
     color: #ffffff;
 }
@@ -398,10 +415,12 @@ fieldset input {
     accent-color: var(--purple-bright);
 }
 
+/* FORM ERRORS */
 .form-error {
     color: var(--error);
     font-weight: 700;
     display: block;
+    min-height: 0;
 }
 
 input[aria-invalid="true"],
@@ -414,6 +433,7 @@ textarea[aria-invalid="true"] {
     font-weight: 600;
 }
 
+/* FORM BUTTON */
 #contact-form button {
     background-color: var(--purple-active);
     color: #ffffff;
@@ -567,8 +587,10 @@ textarea[aria-invalid="true"] {
         padding: var(--space-2);
     }
 
-    .form-field input,
-    .form-field textarea {
+    .form-field input:not([type="radio"]),
+    .form-field textarea,
+    .form-group input:not([type="radio"]),
+    .form-group textarea {
         font-size: 16px;
     }
 
